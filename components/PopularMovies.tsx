@@ -1,32 +1,43 @@
-import React from "react";
-import axios from "axios";
-
-interface Movie {
-  title: string;
-}
+import React, { useState, useEffect } from "react";
+import { fetchEmojiTitle, fetchPopularMovies } from "../utils/axiosHelpers";
 
 const PopularMovies: React.FC = () => {
-  const [movies, setMovies] = React.useState<Movie[]>([]);
-  const [selectedMovie, setSelectedMovie] = React.useState<Movie | null>(null);
+  const [movies, setMovies] = useState([]);
+  const [selectedMovie, setSelectedMovie] = useState(null);
+  const [emojiTitle, setEmojiTitle] = useState("");
+  const [showTitle, setShowTitle] = useState(false);
+  const [isFetchingEmoji, setIsFetchingEmoji] = useState(false);
 
-  React.useEffect(() => {
-    const fetchData = async () => {
-      const res = await axios.get<Movie[]>("/api/popularMovies");
-      setMovies(res.data);
-    };
-    fetchData();
+  useEffect(() => {
+    fetchPopularMovies(setMovies);
   }, []);
 
   const handleClick = () => {
+    setShowTitle(false);
     const randomIndex = Math.floor(Math.random() * movies.length);
     setSelectedMovie(movies[randomIndex]);
   };
+
+  useEffect(() => {
+    if (selectedMovie) {
+      fetchEmojiTitle(setIsFetchingEmoji, setEmojiTitle, selectedMovie);
+    }
+  }, [selectedMovie]);
 
   return (
     <div>
       {selectedMovie ? (
         <div>
-          <h1>{selectedMovie}</h1>
+          {showTitle ? (
+            <h1>{selectedMovie}</h1>
+          ) : (
+            <button onClick={() => setShowTitle(true)}>Show Movie Title</button>
+          )}
+          {isFetchingEmoji ? (
+            <h1>Loading...</h1>
+          ) : (
+            emojiTitle && <h1>{emojiTitle}</h1>
+          )}
           <button onClick={handleClick}>Another Movie</button>
         </div>
       ) : (
