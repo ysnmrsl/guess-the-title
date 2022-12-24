@@ -43,21 +43,12 @@ const PopularMovies: React.FC = () => {
           filter: showTitle || !selectedMovie ? "none" : "blur(30px)",
         }}
       />
-      <div className="rounded-xl bg-neutral-900 p-10">
-        <h1 className="mb-6 text-3xl text-neutral-50">Guess The Title</h1>
+      <div className="flex flex-col items-center justify-center gap-7 rounded-xl bg-neutral-900 p-10">
         {selectedMovie ? (
-          <div className="flex flex-col items-center justify-center gap-6 rounded-xl bg-neutral-800 p-5">
-            {showTitle ? (
-              <h1 className="text-lg text-neutral-50">{selectedMovie.title}</h1>
-            ) : (
-              <button
-                onClick={() => setShowTitle(true)}
-                type="button"
-                className="inline-flex items-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-neutral-50 shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-              >
-                Reveal
-              </button>
-            )}
+          <>
+            <h1 className="text-center text-3xl text-neutral-50">
+              {showTitle ? selectedMovie.title : "Guess The Title"}
+            </h1>
             {isFetchingEmoji ? (
               <h1 className="text-neutral-50">Thinking...</h1>
             ) : (
@@ -67,19 +58,37 @@ const PopularMovies: React.FC = () => {
                 </h1>
               )
             )}
-            <ArrowPathIcon
-              onClick={handleClick}
-              className="h-6 w-6 cursor-pointer text-neutral-50"
-            />
-          </div>
+            {!showTitle ? (
+              <button
+                onClick={() => setShowTitle(true)}
+                type="button"
+                className="inline-flex items-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-neutral-50 shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+              >
+                Reveal
+              </button>
+            ) : (
+              <button
+                onClick={handleClick}
+                type="button"
+                className="inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+              >
+                Next
+              </button>
+            )}
+          </>
         ) : (
-          <button
-            onClick={handleClick}
-            type="button"
-            className="inline-flex items-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-          >
-            Start 🏁
-          </button>
+          <>
+            <h1 className="mb-6  text-center text-3xl text-neutral-50">
+              Guess The Title
+            </h1>
+            <button
+              onClick={handleClick}
+              type="button"
+              className="inline-flex items-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+            >
+              Start 🏁
+            </button>
+          </>
         )}
       </div>
     </div>
