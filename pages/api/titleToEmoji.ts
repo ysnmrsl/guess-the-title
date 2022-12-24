@@ -21,5 +21,4 @@ return `Convert movie titles into emoji.
 Back to the Future: 👨👴🚗🕒 
 Batman: 🤵🦇 
 Transformers: 🚗🤖 
-${movie}:`
-}
+${movie}:`}
