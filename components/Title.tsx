@@ -25,7 +25,7 @@ const Title: React.FC<TitleProps> = ({
           duration: 0.07,
         }}
         layoutId="title"
-        className="z-20 -mb-1 text-center text-lg text-neutral-50"
+        className="z-20 -mb-1  text-center text-lg text-neutral-50"
       >
         {showTitle ? selectedMovie?.title : "Guess The Title"}
       </motion.h1>
@@ -50,7 +50,7 @@ const Title: React.FC<TitleProps> = ({
               ease: "easeInOut",
               duration: 0.07,
             }}
-            className="space z-20 h-[3rem] overflow-hidden rounded-lg bg-white p-2 text-4xl tracking-[0.2em]"
+            className="space z-20 h-[3rem] overflow-hidden rounded-lg bg-white p-2 text-2xl tracking-[0.2em]"
           >
             {emojiTitle}
           </motion.h1>

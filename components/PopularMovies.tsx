@@ -37,6 +37,8 @@ const PopularMovies: React.FC = () => {
     }
   }, [selectedMovie]);
 
+  console.log(movies);
+
   return (
     <Div100vh
       className={`relative flex flex-col  items-center justify-center gap-12 p-8`}
@@ -82,7 +84,7 @@ const PopularMovies: React.FC = () => {
           <div className="flex flex-col items-center justify-center gap-7 p-6">
             <motion.h1
               layoutId="title"
-              className="mb-6  text-center text-3xl text-neutral-50"
+              className="mb-6  w-[18rem] text-center text-3xl text-neutral-50"
             >
               Guess The Title
             </motion.h1>
