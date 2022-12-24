@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Div100vh from "react-div-100vh";
 import { fetchEmojiTitle, fetchPopularMovies } from "../utils/axiosHelpers";
 import { motion } from "framer-motion";
 import useMeasure from "react-use-measure";
@@ -37,9 +38,7 @@ const PopularMovies: React.FC = () => {
   }, [selectedMovie]);
 
   return (
-    <div
-      className={`relative  flex min-h-screen items-center justify-center  p-8`}
-    >
+    <Div100vh className={`relative  flex  items-center justify-center  p-8`}>
       <Cover selectedMovie={selectedMovie} showTitle={showTitle} />
       <motion.div
         animate={{ width }}
@@ -84,7 +83,7 @@ const PopularMovies: React.FC = () => {
           </div>
         )}
       </motion.div>
-    </div>
+    </Div100vh>
   );
 };
 
