@@ -37,18 +37,20 @@ const Title: React.FC<TitleProps> = ({
         />
       ) : null}
       {isFetchingEmoji ? (
-        <h1 className="z-20 text-neutral-50">Thinking...</h1>
+        <h1 className="z-20 flex h-[3rem]  items-center text-neutral-50">
+          Thinking...
+        </h1>
       ) : (
         emojiTitle && (
           <motion.h1
-            initial={{ height: 0 }}
-            animate={{ height: "auto" }}
+            initial={{ width: 0 }}
+            animate={{ width: "auto" }}
             transition={{
               type: "tween",
               ease: "easeInOut",
               duration: 0.07,
             }}
-            className="space z-20 overflow-hidden rounded-lg bg-white p-2 text-4xl tracking-[0.2em]"
+            className="space z-20 h-[3rem] overflow-hidden rounded-lg bg-white p-2 text-4xl tracking-[0.2em]"
           >
             {emojiTitle}
           </motion.h1>

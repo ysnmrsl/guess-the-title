@@ -54,9 +54,9 @@ const PopularMovies: React.FC = () => {
         </div>
       ) : null}
       <motion.div
-        animate={{ width }}
+        animate={{ height }}
         transition={{ duration: 0.07 }}
-        className="relative z-20 flex min-w-max items-center justify-center rounded-xl bg-neutral-900"
+        className="relative z-20 flex w-[16rem] items-center justify-center rounded-xl bg-neutral-900"
       >
         {selectedMovie ? (
           <div
@@ -91,7 +91,7 @@ const PopularMovies: React.FC = () => {
               type="button"
               className="inline-flex items-center rounded-md border border-transparent bg-yellow-600 px-3 py-2 text-sm font-medium leading-4 text-white shadow-sm hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2"
             >
-              Start 🏁
+              Start 🎬
             </button>
           </div>
         )}
