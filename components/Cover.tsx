@@ -17,9 +17,8 @@ const Cover: React.FC<CoverProps> = ({
         backgroundImage: `url(${selectedMovie?.cover})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
-        filter: showTitle || !selectedMovie ? "none" : "blur(30px)",
       }}
-      className={`absolute inset-0 z-10 ${className}`}
+      className={`absolute inset-0 z-10 ${className} blur-xl sepia`}
     />
   );
 };

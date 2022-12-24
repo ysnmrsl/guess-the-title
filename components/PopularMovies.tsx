@@ -38,12 +38,25 @@ const PopularMovies: React.FC = () => {
   }, [selectedMovie]);
 
   return (
-    <Div100vh className={`relative  flex  items-center justify-center  p-8`}>
+    <Div100vh
+      className={`relative flex flex-col  items-center justify-center gap-12 p-8`}
+    >
       <Cover selectedMovie={selectedMovie} showTitle={showTitle} />
+      {selectedMovie ? (
+        <div
+          className={`relative z-20 w-[16rem] rounded-xl border-4 border-neutral-900 `}
+        >
+          <img
+            src={selectedMovie?.cover}
+            alt={selectedMovie?.title}
+            className={`rounded-xl ${showTitle ? "blur-none" : "blur-lg"}`}
+          />
+        </div>
+      ) : null}
       <motion.div
         animate={{ width }}
         transition={{ duration: 0.07 }}
-        className="relative z-20  flex min-w-max items-center justify-center rounded-xl bg-neutral-900"
+        className="relative z-20 flex min-w-max items-center justify-center rounded-xl bg-neutral-900"
       >
         {selectedMovie ? (
           <div
