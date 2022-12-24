@@ -31,29 +31,31 @@ const PopularMovies: React.FC = () => {
   }, [selectedMovie]);
 
   return (
-    <div className="relative flex min-h-screen items-center justify-center">
+    <div
+      className={`relative  flex min-h-screen items-center justify-center ${
+        selectedMovie ? "bg-none" : "bg-neutral-900"
+      } p-8`}
+    >
       <div
-        className={`absolute inset-0 -z-10 `}
         style={{
-          background: selectedMovie
-            ? `url(${selectedMovie?.cover})`
-            : "#171717",
+          backgroundImage: `url(${selectedMovie?.cover})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           filter: showTitle || !selectedMovie ? "none" : "blur(30px)",
         }}
+        className={`absolute inset-0 -z-10 `}
       />
-      <div className="flex flex-col items-center justify-center gap-7 rounded-xl bg-neutral-900 p-10">
+      <div className="flex flex-col items-center justify-center gap-7 rounded-xl bg-neutral-900 p-6">
         {selectedMovie ? (
           <>
-            <h1 className="text-center text-3xl text-neutral-50">
+            <h1 className="text-center text-lg text-neutral-50">
               {showTitle ? selectedMovie.title : "Guess The Title"}
             </h1>
             {isFetchingEmoji ? (
               <h1 className="text-neutral-50">Thinking...</h1>
             ) : (
               emojiTitle && (
-                <h1 className="rounded-lg bg-white p-2 text-4xl">
+                <h1 className="space rounded-lg bg-white p-2 text-4xl tracking-[0.2em]">
                   {emojiTitle}
                 </h1>
               )
@@ -70,7 +72,7 @@ const PopularMovies: React.FC = () => {
               <button
                 onClick={handleClick}
                 type="button"
-                className="inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                className="inline-flex items-center rounded-md border border-gray-300 bg-white px-3 py-2 text-sm font-medium leading-4 text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
               >
                 Next
               </button>
@@ -84,7 +86,7 @@ const PopularMovies: React.FC = () => {
             <button
               onClick={handleClick}
               type="button"
-              className="inline-flex items-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+              className="inline-flex items-center rounded-md border border-transparent bg-indigo-600 px-3 py-2 text-sm font-medium leading-4 text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
             >
               Start 🏁
             </button>
