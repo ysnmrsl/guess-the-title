@@ -49,7 +49,7 @@ const PopularMovies: React.FC = () => {
         {selectedMovie ? (
           <div
             ref={ref}
-            className="flex flex-col items-center justify-center gap-7 p-6"
+            className="relative flex flex-col items-center justify-center gap-7  p-6"
           >
             <Title
               isFetchingEmoji={isFetchingEmoji}
