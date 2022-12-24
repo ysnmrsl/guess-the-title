@@ -50,7 +50,7 @@ const Title: React.FC<TitleProps> = ({
               ease: "easeInOut",
               duration: 0.07,
             }}
-            className="space z-20 h-[3rem] overflow-hidden rounded-lg bg-white p-2 text-2xl tracking-[0.2em]"
+            className="space z-20 flex h-[3rem] items-center justify-center overflow-hidden rounded-lg bg-white p-2 text-3xl tracking-[0.2em]"
           >
             {emojiTitle}
           </motion.h1>
